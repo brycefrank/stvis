@@ -1,4 +1,3 @@
-
 // Attempting to make a reusable grid figure function
 // based on https://bost.ocks.org/mike/chart/
 // for simplicity this will always be square
@@ -60,61 +59,4 @@ function grid() {
     }
 
     return my;
-}
-
-// A pair is two circles connected with a line that can be moved
-// by the user and provide access to their current x,y positions
-function pair() {
-    function my(selection) {
-        var width = my.width();
-        var height = my.height();
-        var radius = my.radius();
-
-
-        // Init two circles
-        var circles = d3.range(2).map(function() {
-            return {
-                x: Math.round(Math.random() * (width - radius * 2) + radius),
-                y: Math.round(Math.random() * (height - radius * 2) + radius)
-            };
-        });
-
-
-        // Add circles to selection
-        selection
-            .selectAll('circle')
-            .data(circles)
-            .enter()
-            .append('circle')
-            .attr('cx', function(d){return d.x})
-            .attr('cy', function(d){return d.y})
-            .attr('r', radius).attr('fill', 'yellow').attr('stroke', 'black')
-            .on("click", clicked)
-            .call(d3.drag()
-                .clickDistance(CLICK_DISTANCE)
-                .on("start", dragstarted)
-                .on("drag", dragged)
-                .on("end", dragended));
-    }
-
-    my.width = function(value) {
-        if (!arguments.length) return width;
-        width = value;
-        return my;
-    }
-
-    my.height = function(value) {
-        if (!arguments.length) return height;
-        height = value;
-        return my;
-    }
-
-    my.radius = function(value) {
-        if(!arguments.length) return radius;
-        radius = value;
-        return my;
-    }
-
-    return my;
-
 }

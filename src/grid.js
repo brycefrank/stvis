@@ -10,17 +10,13 @@ function grid() {
         color_scale = my.color_scale(),
         between = my.between();
 
-        selection.each(
-            function(d, i) {
-                d3.select(this)
-                    .append('rect')
-                    .attr('x', function(d) { return ((d.x-1) % grid_width) * cell_width + grid_buffer})
-                    .attr('y', function(d) { return ((d.y-1) % grid_width) * cell_width + grid_buffer})
-                    .attr('width',  cell_width - between)
-                    .attr('height', cell_width - between)
-                    .attr('fill', color_scale(d.z))
-            }
-        )
+        selection
+            .append('rect')
+            .attr('x', function(d) { return ((d.x-1) % grid_width) * cell_width + grid_buffer})
+            .attr('y', function(d) { return ((d.y-1) % grid_width) * cell_width + grid_buffer})
+            .attr('width',  cell_width - between)
+            .attr('height', cell_width - between)
+            .attr('fill', function(d) {return color_scale(d.z)})
     }
 
     // The number of cells on a side

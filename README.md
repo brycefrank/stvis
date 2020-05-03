@@ -5,6 +5,8 @@ This repository holds a number of reusable components for creating educational v
 statistics for the d3 visualization library. Each component is implemented using the general
 philosophy described [here](https://bost.ocks.org/mike/chart/).
 
+Examples can be viewed at [].
+
 ## `grid`
 
 ### Data
@@ -14,13 +16,13 @@ Provide data such that:
 
 ```
 var cells = [
-    {x: "23", y: "30", z: "-0.22749336682146"},
-    {x: "24", y: "30", z: "-0.27311257527676"},
-    {x: "25", y: "30", z: "-0.147085050103258"},
-    {x: "26", y: "30", z: "-0.0279981860230725"},
-    {x: "27", y: "30", z: "0.0299189645510937"},
+    {x: "23", y: "30", z: "0.22749336682146"},
+    {x: "24", y: "30", z: "0.27311257527676"},
+    {x: "25", y: "30", z: "0.147085050103258"},
+    {x: "26", y: "30", z: "0.027998186023072"},
+    {x: "27", y: "30", z: "0.299189645510937"},
     ...
-    {x: "28", y: "30", z: "-0.0745176411378357"}
+    {x: "28", y: "30", z: "0.074517641137835"}
 ]
 ```
 
